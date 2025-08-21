@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Agner DNS Design System - Modern Glass Liquid Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Primary Colors - Dark Blue & Grays */
+    --background: 230 15% 9%;
+    --foreground: 0 0% 100%;
+
+    --card: 230 12% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 230 12% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 230 25% 16%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 207 90% 54%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 14% 11%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 174 65% 59%;
+    --accent-foreground: 230 25% 16%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 12% 20%;
+    --input: 230 12% 15%;
+    --ring: 207 90% 54%;
+
+    --radius: 1rem;
+
+    /* Additional Agner DNS Colors */
+    --orange: 35 91% 56%;
+    --light-gray: 0 0% 96%;
+    --medium-gray: 0 0% 72%;
+    
+    /* Glass Liquid Effects */
+    --glass-bg: 230 12% 12% / 0.8;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-blur: 20px;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(230 25% 16%), hsl(207 90% 54%));
+    --gradient-secondary: linear-gradient(135deg, hsl(207 90% 54%), hsl(174 65% 59%));
+    --gradient-hero: linear-gradient(135deg, hsl(230 25% 16%), hsl(207 90% 54%), hsl(174 65% 59%));
+    --gradient-card: linear-gradient(135deg, hsl(230 12% 12% / 0.8), hsl(230 12% 15% / 0.6));
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 40px hsl(207 90% 54% / 0.2);
+    --shadow-intense: 0 20px 60px hsl(0 0% 0% / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --chart-1: 207 90% 54%;
+    --chart-2: 174 65% 59%;
+    --chart-3: 35 91% 56%;
+    --chart-4: 0 0% 70%;
+    --chart-5: 230 25% 16%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 230 25% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 16%;
+    --primary: 207 90% 54%;
+    --secondary: 230 25% 16%;
+    --muted: 0 0% 96%;
+    --accent: 174 65% 59%;
+    --border: 0 0% 90%;
+    --glass-bg: 255 255 255 / 0.8;
+    --glass-border: 0 0% 0% / 0.1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(135deg, hsl(230 25% 16%), hsl(230 20% 12%), hsl(230 15% 9%));
+    min-height: 100vh;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Glass Liquid Effects */
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsl(var(--glass-border));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-intense {
+    background: linear-gradient(135deg, 
+      hsl(230 12% 12% / 0.9), 
+      hsl(230 12% 15% / 0.7)
+    );
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(0 0% 100% / 0.15);
+    box-shadow: var(--shadow-intense);
+  }
+  
+  /* Gradient Backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  /* Interactive Elements */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-intense);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-effect:hover {
+    box-shadow: 
+      var(--shadow-glow),
+      0 0 60px hsl(207 90% 54% / 0.3);
+  }
+  
+  /* Status Indicators */
+  .status-active {
+    background: hsl(174 65% 59%);
+    color: hsl(230 25% 16%);
+    box-shadow: 0 0 20px hsl(174 65% 59% / 0.4);
+  }
+  
+  .status-inactive {
+    background: hsl(0 0% 40%);
+    color: hsl(0 0% 90%);
+  }
+  
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(207 90% 54% / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(207 90% 54% / 0.6);
+    }
+  }
+  
+  /* IP Address Styling - Simplified */
+  .ip-display {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-weight: 600;
+    color: hsl(var(--secondary));
+  }
+}
