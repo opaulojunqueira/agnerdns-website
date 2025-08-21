@@ -12,11 +12,11 @@ const Header = () => {
 
   const navItems = [
     { name: 'Home', href: '/', icon: Globe },
-    { name: 'Sobre', href: '/about', icon: Shield },
+    { name: 'Sobre', href: '/sobre', icon: Shield },
     { name: 'Tutorial', href: '/tutorial', icon: Settings },
     { name: 'FAQ', href: '/faq', icon: Users },
     { name: 'Status', href: '/status', icon: Users },
-    { name: 'Contato', href: '/contact', icon: Users }
+    { name: 'Contato', href: '/contato', icon: Users }
   ];
 
   return (
